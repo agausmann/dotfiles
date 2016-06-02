@@ -1,0 +1,12 @@
+## Use 4-space tabsize
+set tabsize 4
+
+## Don't display the helpful shortcut lists at the bottom of the screen.
+set nohelp
+
+## Don't wrap text at all.
+set nowrap
+
+## Enable smooth line scrolling
+set smooth
+
