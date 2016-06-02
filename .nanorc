@@ -1,3 +1,8 @@
+#
+# ~/.nanorc
+# Author: Adam Gausmann
+#
+
 ## Use 4-space tabsize
 set tabsize 4
 

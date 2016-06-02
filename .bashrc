@@ -1,21 +1,23 @@
 #
 # ~/.bashrc
+# Author: Adam Gausmann
 #
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#Colors
+# Color aliases
 alias ls='ls --color=auto'
 
 PS1='[\u@\h \W]\$ '
 
-EDITOR=/usr/bin/nano
-GIT_EDITOR=$EDITOR
-SUDO_EDITOR=$EDITOR
-#PATH=$PATH:/home/adam/bin
+export EDITOR=/usr/bin/nano
+export GIT_EDITOR=$EDITOR
+export SUDO_EDITOR=$EDITOR
 
+# Aliases
+alias ll="ls -l"
+alias la="ls -la"
 alias se="sudoedit"
 alias ed=$EDITOR
 alias sc="sudo systemctl"
-alias screenshot="clear && screenfetch -s"
