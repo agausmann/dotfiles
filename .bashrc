@@ -21,3 +21,4 @@ alias la="ls -la"
 alias se="sudoedit"
 alias ed=$EDITOR
 alias sc="sudo systemctl"
+alias ssu="sudo su"
