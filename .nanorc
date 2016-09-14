@@ -15,5 +15,3 @@ set nowrap
 ## Enable smooth line scrolling
 set smooth
 
-# Include files for syntax highlighting
-include "/usr/share/nano/*.nanorc"
