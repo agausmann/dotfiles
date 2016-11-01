@@ -22,3 +22,8 @@ alias se="sudoedit"
 alias ed=$EDITOR
 alias sc="sudo systemctl"
 alias ssu="sudo su"
+
+if [ -e ~/.dailyfortune ]
+then
+	cat ~/.dailyfortune
+fi
