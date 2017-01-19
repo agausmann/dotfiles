@@ -22,6 +22,9 @@ alias se="sudoedit"
 alias ed=$EDITOR
 alias sc="sudo systemctl"
 alias ssu="sudo su"
+alias tb="nc termbin.com 9999"
+
+eval $(thefuck --alias)
 
 if [ -e ~/.dailyfortune ]
 then
