@@ -23,6 +23,7 @@ alias ed=$EDITOR
 alias sc="sudo systemctl"
 alias ssu="sudo su"
 alias tb="nc termbin.com 9999"
+alias sloop="while true; do sl; done"
 
 eval $(thefuck --alias)
 
