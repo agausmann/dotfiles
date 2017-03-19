@@ -159,8 +159,6 @@ bar {
         status_command i3status
 }
 
-exec /usr/share/powerline/bindings/lemonbar/powerline-lemonbar.py --i3
-
 # Multimedia keys
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -175,4 +173,6 @@ bindsym $mod+Shift+l exec i3lock -c 000000
 bindsym $mod+n exec networkmanager_dmenu
 
 # Redshift
-exec redshift
+exec --no-startup-id redshift
+# Background
+exec --no-startup-id nitrogen --restore &
