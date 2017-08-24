@@ -176,3 +176,5 @@ bindsym $mod+n exec networkmanager_dmenu
 exec --no-startup-id redshift
 # Background
 exec --no-startup-id nitrogen --restore &
+# Autolock
+#exec --no-startup-id xautolock -locker "/usr/bin/i3lock -c 000000" -t 10m 
