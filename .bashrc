@@ -20,9 +20,10 @@ alias ll="ls -l"
 alias la="ls -la"
 alias se="sudoedit"
 alias ed=$EDITOR
-alias sc="sudo systemctl"
+alias ssc="sudo systemctl"
+alias snc="sudo netctl"
 alias ssu="sudo su"
-alias tb="nc termbin.com 9999"
+alias termbin="nc termbin.com 9999"
 alias sloop="while true; do sl; done"
 
 eval $(thefuck --alias)
