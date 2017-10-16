@@ -26,8 +26,6 @@ alias ssu="sudo su"
 alias termbin="nc termbin.com 9999"
 alias sloop="while true; do sl; done"
 
-eval $(thefuck --alias)
-
 if [ -e ~/.dailyfortune ]
 then
 	cat ~/.dailyfortune
