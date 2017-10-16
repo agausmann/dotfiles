@@ -166,8 +166,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
 
-# i3lock screen
-bindsym $mod+Shift+l exec i3lock -c 000000
 
 # Network management
 bindsym $mod+n exec networkmanager_dmenu
@@ -176,5 +174,9 @@ bindsym $mod+n exec networkmanager_dmenu
 exec --no-startup-id redshift
 # Background
 exec --no-startup-id nitrogen --restore &
-# Autolock
-#exec --no-startup-id xautolock -locker "/usr/bin/i3lock -c 000000" -t 10m 
+
+# Locker
+exec --no-startup-id light-locker --lock-on-suspend --no-late-locking &
+#exec --no-startup-id xautolock -locker "/usr/bin/light-locker-command -l" -t 10m
+bindsym $mod+Shift+l exec /usr/bin/light-locker-command -l
+
