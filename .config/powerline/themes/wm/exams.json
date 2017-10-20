@@ -1,0 +1,32 @@
+{
+	"segments": {
+        "left": [
+            {
+                "function": "powerline.segments.i3wm.mode"
+            },
+            {
+                "function": "powerline.segments.i3wm.workspaces"
+            }
+        ],
+		"right": [
+            {
+                "function": "powerline-pulseaudio.segments.mute"
+            },
+            {
+                "function": "powerline-pulseaudio.segments.volume"
+            },
+            {
+                "function": "powerline.segments.common.bat.battery"
+            },
+            {
+                "function": "powerline.segments.common.sys.cpu_load_percent"
+            },
+			{
+				"function": "powerline.segments.common.time.date",
+				"args": {
+					"format": "%Y-%m-%d %H:%M:%S"
+				}
+			}
+		]
+	}
+}
