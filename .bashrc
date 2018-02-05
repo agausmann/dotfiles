@@ -1,7 +1,8 @@
 #
 # ~/.bashrc
-# Author: Adam Gausmann
+# author: adam gausmann
 #
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

@@ -1,18 +1,19 @@
 #
 # ~/.nanorc
-# Author: Adam Gausmann
+# author: adam gausmann
 #
 
-## Use 4-space tabsize
-set tabsize 4
-set tabstospaces
 
-## Don't display the helpful shortcut lists at the bottom of the screen.
+# appearance
+# ==========
+
 set nohelp
-
-## Don't wrap text at all.
 set nowrap
-
-## Enable smooth line scrolling
 set smooth
 
+
+# indentation
+# ===========
+
+set tabsize 4
+set tabstospaces

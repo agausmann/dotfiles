@@ -1,1 +1,1 @@
-set disassembly-flavor intel
+s##:et disassembly-flavor intel

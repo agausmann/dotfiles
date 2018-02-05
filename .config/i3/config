@@ -1,67 +1,43 @@
-exec --no-startup-id shopt -s huponexit
+#
+# ~/.config/i3/config
+# author: adam gausmann
+#
 
+# meta keys
 set $mod Mod4
 floating_modifier $mod
 
+
+# appearance
+# ==========
+
+# fonts
 font pango:DejaVu Sans Mono 8
-bindsym $mod+Return exec gnome-terminal
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# gaps
+for_window [class="^.*"] border pixel 0
+gaps inner 12
 
-bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# behavior
+# ========
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# session cleanup
+exec --no-startup-id shopt -s huponexit
 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# navigation
+# ==========
 
-# split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+j     focus left
+bindsym $mod+k     focus down
+bindsym $mod+l     focus up
+bindsym $mod+colon focus right
 
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
+bindsym $mod+space   focus mode_toggle
+bindsym $mod+a       focus parent
 bindsym $mod+Shift+a focus child
 
-# switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -73,7 +49,20 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
-# move focused container to workspace
+focus_follows_mouse no
+
+
+# layout
+# ======
+
+bindsym $mod+Shift+j     move left
+bindsym $mod+Shift+k     move down
+bindsym $mod+Shift+l     move up
+bindsym $mod+Shift+colon move right
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -85,36 +74,24 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-# rename workspace
-bindsym $mod+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New workspace name: '
+bindsym $mod+b split h
+bindsym $mod+v split v
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        bindsym j     resize shrink width  10 px or 10 ppt
+        bindsym k     resize grow   height 10 px or 10 ppt
+        bindsym l     resize shrink height 10 px or 10 ppt
+        bindsym colon resize grow   width  10 px or 10 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+j     resize shrink width  100 px or 100 ppt
+        bindsym Shift+k     resize grow   height 100 px or 100 ppt
+        bindsym Shift+l     resize shrink height 100 px or 100 ppt
+        bindsym Shift+colon resize grow   width  100 px or 100 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -122,33 +99,38 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# Multimedia keys
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10%
+# management
+# ==========
 
-# Network management
-bindsym $mod+n exec networkmanager_dmenu
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
 
-# Redshift
-exec --no-startup-id redshift
-# Background
-exec --no-startup-id nitrogen --restore &
 
-# Lock script
-bindsym $mod+Shift+p exec --no-startup-id /home/adam/bin/lock.sh
+# programs
+# ========
 
-# GSD/GPM Backend
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec_always --no-startup-id gnome-power-manager
+bindsym $mod+Return          exec --no-startup-id ~/.local/bin/i3/terminal
+bindsym $mod+d               exec --no-startup-id ~/.local/bin/i3/menu 
+bindsym $mod+Shift+p         exec --no-startup-id ~/.local/bin/i3/lock
+bindsym XF86AudioMute        exec --no-startup-id ~/.local/bin/i3/vol_mute
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/bin/i3/vol_down
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.local/bin/i3/vol_up
 
-# Automount
+
+# autostart
+# =========
+
+# host-specific init
+exec --no-startup-id ~/.local/bin/i3/autostart
+
+# automount
 exec --no-startup-id udiskie &
 
-# Notification Handler
+# bar and notifications
 exec --no-startup-id twmnd &
 
-# Bar
-exec_always --no-startup-id /home/adam/bin/polybar.sh
-
-focus_follows_mouse no
+# appearance
+exec --no-startup-id compton -b
+exec --no-startup-id nitrogen --restore &
