@@ -12,12 +12,18 @@ floating_modifier $mod
 # ==========
 
 # fonts
-font pango:DejaVu Sans Mono 8
+font pango:Liberation Mono 8 
 
 # gaps
 for_window [class="^.*"] border pixel 0
 gaps inner 12
 
+# bar
+bar {
+    status_command i3blocks
+    font pango:Liberation Mono 10
+    tray_output none
+}
 
 # behavior
 # ========
@@ -128,7 +134,7 @@ exec --no-startup-id ~/.local/bin/i3/autostart
 # automount
 exec --no-startup-id udiskie &
 
-# bar and notifications
+# notifications
 exec --no-startup-id twmnd &
 
 # appearance
