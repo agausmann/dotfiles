@@ -12,6 +12,10 @@ set showcmd
 set incsearch
 set hlsearch
 
+" syntax
+filetype plugin on
+syntax on
+
 
 " rebinds
 " ==========
