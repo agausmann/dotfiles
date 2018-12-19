@@ -85,18 +85,19 @@ bindsym $mod+Shift+$kws9 move container to workspace $ws9
 bindsym $mod+Shift+$kws10 move container to workspace $ws10
 
 mode "resize" {
-        bindsym $kleft resize shrink width 10 px or 10 ppt
-        bindsym $kdown resize grow height 10 px or 10 ppt
-        bindsym $kup resize shrink height 10 px or 10 ppt
-        bindsym $kright resize grow width 10 px or 10 ppt
+    bindsym $kleft resize shrink width 10 px or 10 ppt
+    bindsym $kdown resize grow height 10 px or 10 ppt
+    bindsym $kup resize shrink height 10 px or 10 ppt
+    bindsym $kright resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command /usr/bin/i3status
+    tray_output none
+    status_command /usr/bin/i3status
 }
