@@ -1,0 +1,66 @@
+general {
+    colors = true
+    interval = 5
+}
+
+order += "ipv6"
+order += "wireless wlp4s0"
+order += "ethernet enp2s0"
+order += "disk /"
+order += "disk /home"
+order += "volume default"
+order += "battery all"
+order += "cpu_usage"
+order += "tztime local"
+order += "tztime utc"
+
+battery all {
+    format = "%status %percentage %remaining"
+    format_down = ""
+    status_chr = "chr"
+    status_bat = "bat"
+    status_unk = "unk"
+    status_full = "full"
+}
+
+cpu_usage {
+    format = "cpu %usage"
+}
+
+disk "/" {
+    format = "root %avail"
+}
+
+disk "/home" {
+    format = "home %avail"
+}
+
+ethernet enp2s0 {
+    format_up = "en %ip"
+    format_down = ""
+}
+
+ipv6 {
+    format_up = "ip6 %ip"
+    format_down = ""
+}
+
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
+
+tztime utc {
+    format = "utc %H:%M"
+    timezone = UTC
+}
+
+volume default {
+    format = "vol %volume"
+    format_muted = "mute %volume"
+    device = "pulse"
+}
+
+wireless wlp4s0 {
+    format_up = "wl %ip %essid %quality"
+    format_down = ""
+}
