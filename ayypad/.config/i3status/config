@@ -20,7 +20,7 @@ battery all {
     status_chr = "chr"
     status_bat = "bat"
     status_unk = "unk"
-    status_full = "full"
+    status_full = "bat"
 }
 
 cpu_usage {
