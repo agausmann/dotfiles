@@ -11,8 +11,8 @@ order += "disk /home"
 order += "volume default"
 order += "battery all"
 order += "cpu_usage"
-order += "tztime local"
 order += "tztime utc"
+order += "tztime local"
 
 battery all {
     format = "%status %percentage %remaining"
@@ -45,13 +45,13 @@ ipv6 {
     format_down = ""
 }
 
-tztime local {
+tztime utc {
     format = "%Y-%m-%d %H:%M:%S"
+    timezone = UTC
 }
 
-tztime utc {
-    format = "utc %H:%M"
-    timezone = UTC
+tztime local {
+    format = "%H:%M"
 }
 
 volume default {
