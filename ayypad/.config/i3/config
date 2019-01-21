@@ -36,9 +36,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 bindsym $mod+Shift+q kill
+bindsym $mod+Shift+p exec --no-startup-id /usr/bin/i3lock -c 000000
 
 bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run
-bindsym $mod+Return exec --no-startup-id  /usr/bin/st
+bindsym $mod+Return exec --no-startup-id  /usr/bin/lxterminal
 
 bindsym $mod+$kleft focus left
 bindsym $mod+$kdown focus down
