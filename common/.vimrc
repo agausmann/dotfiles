@@ -15,3 +15,5 @@ set smartindent
 set autoindent
 set hlsearch
 set showmatch
+set directory=$HOME/.vim/tmp
+set backupdir=$HOME/.vim/tmp
