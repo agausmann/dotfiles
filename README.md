@@ -1,66 +1,29 @@
 # dotfiles
 
-My personal dotfiles and configurations.
+My personal dotfiles and configurations, generated from templates with Mako!
 
 ## Contents
 
-- `common/` - A set of configuration files common to every system.
+- `templates/` - The set of base template files.
 
-- `$hostname/` - Configuration files specific to the system with the given
-  hostname.
+- `include/` - Template files that do not map directly to a generated file.
 
-- `$x/` - Additional (optional) configurations that can also be added.
+- `install.py` - The script that generates and installs the templates. (Requires Mako)
 
-- `install` - A file-copying utility script.
+- `install` - Wraps a call to `pipenv run install.py`
 
-## Configuration
+## How it Works
 
-Each subdirectory in this repository is a collection of configuration files
-relative to the user's home directory. For example, adding the file
-`common/.config/x` will install it to `$HOME/.config/x` when the `install`
-script chooses the `common` subdirectory.
+For each file in the `templates/` directory (recursively), the installation script
+will parse and render it as a Mako template and output it with the same path but
+relative to the home directory. Mako is configured to look for additional files in the
+`include/` directory if they don't exist in `templates/`, so use that if you reference
+other template files that aren't supposed to be rendered as a standalone file.
 
-Files are chosen from these subdirectories in order, with precedence given to
-the subdirectory listed first if multiple have a file in the same location:
+## Requirements
 
-- Custom subdirectories passed by command line (from left to right).
-
-- The subdirectory that is the same as the system's hostname.
-
-- The `common` subdirectory.
-
-Note that any files existing in the subdirectory will be created, but the
-script cannot detect when files are removed and will not attempt to remove
-anything from the home directory.
+- Either mako (for using `install.py`) or pipenv (for `install`).
 
 ## Installation
 
-Made easy by the `install` script.
-
-### Requirements
-
-- `rsync`, used as the smart file copy utility.
-
-### Environment
-
-- `HOME` - The home directory of the user running this script.
-
-- `HOSTNAME` - The hostname of this system. If not present, defaults to the
-  value of `hostname`.
-
-- `DOTFILES` - The repository root. If not present, the directory containing
-  the `install` script is used.
-
-### Steps
-
-```
-# Fetch the repository (if you haven't already):
-git clone git@gitlab.com:agausmann/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-
-# Make sure submodules are up to date (thinks like third-party Vim plugins):
-git submodule update --init
-
-# Run the script:
-./install [ custom_targets ... ]
-```
+Made easy by the `install` script. Use `install --help` to see customization options.
