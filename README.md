@@ -10,7 +10,7 @@ My personal dotfiles and configurations, generated from templates with Mako!
 
 - `install.py` - The script that generates and installs the templates. (Requires Mako)
 
-- `install` - Wraps a call to `pipenv run install.py`
+- `install` - Updates submodules and runs `pipenv run install.py "$@"`.
 
 ## How it Works
 
