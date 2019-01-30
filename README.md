@@ -22,7 +22,14 @@ other template files that aren't supposed to be rendered as a standalone file.
 
 ## Requirements
 
-- Either mako (for using `install.py`) or pipenv (for `install`).
+Basic requirements (`install`):
+
+- pipenv
+
+Low-level requirements (`install.py`):
+
+- mako
+- toml
 
 ## Installation
 
