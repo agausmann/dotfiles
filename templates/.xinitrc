@@ -4,10 +4,10 @@
 % for output in xinit.get('outputs', []):
 xrandr --output '${output['name']}' --set TearFree on \
 % if output.get('config'):
-${' '.join(output['config'])}
+${' '.join(output['config'])}\
 %endif
-% endfor
 
+% endfor 
 xset s 0 0
 xset -dpms
 
