@@ -1,0 +1,108 @@
+set $mod Mod4
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+set $kws1 1
+set $kws2 2
+set $kws3 3
+set $kws4 4
+set $kws5 5
+set $kws6 6
+set $kws7 7
+set $kws8 8
+set $kws9 9
+set $kws10 0
+
+set $kleft h
+set $kdown j
+set $kup k
+set $kright l
+
+font pango:DejaVu Sans Mono 8
+focus_follows_mouse no
+
+floating_modifier $mod
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+p exec --no-startup-id /usr/bin/i3lock -c 000000
+
+bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run
+bindsym $mod+Return exec --no-startup-id  ${host.get('terminal', '/usr/bin/i3-sensible-terminal')}
+
+bindsym $mod+$kleft focus left
+bindsym $mod+$kdown focus down
+bindsym $mod+$kup focus up
+bindsym $mod+$kright focus right
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+bindsym $mod+Shift+$kleft move left
+bindsym $mod+Shift+$kdown move down
+bindsym $mod+Shift+$kup move up
+bindsym $mod+Shift+$kright move right
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+b split h
+bindsym $mod+v split v
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+$kws1 workspace $ws1
+bindsym $mod+$kws2 workspace $ws2
+bindsym $mod+$kws3 workspace $ws3
+bindsym $mod+$kws4 workspace $ws4
+bindsym $mod+$kws5 workspace $ws5
+bindsym $mod+$kws6 workspace $ws6
+bindsym $mod+$kws7 workspace $ws7
+bindsym $mod+$kws8 workspace $ws8
+bindsym $mod+$kws9 workspace $ws9
+bindsym $mod+$kws10 workspace $ws10
+
+bindsym $mod+Shift+$kws1 move container to workspace $ws1
+bindsym $mod+Shift+$kws2 move container to workspace $ws2
+bindsym $mod+Shift+$kws3 move container to workspace $ws3
+bindsym $mod+Shift+$kws4 move container to workspace $ws4
+bindsym $mod+Shift+$kws5 move container to workspace $ws5
+bindsym $mod+Shift+$kws6 move container to workspace $ws6
+bindsym $mod+Shift+$kws7 move container to workspace $ws7
+bindsym $mod+Shift+$kws8 move container to workspace $ws8
+bindsym $mod+Shift+$kws9 move container to workspace $ws9
+bindsym $mod+Shift+$kws10 move container to workspace $ws10
+
+mode "resize" {
+    bindsym $kleft resize shrink width 10 px or 10 ppt
+    bindsym $kdown resize grow height 10 px or 10 ppt
+    bindsym $kup resize shrink height 10 px or 10 ppt
+    bindsym $kright resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -8%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bar {
+    tray_output none
+    status_command /usr/bin/i3status
+}

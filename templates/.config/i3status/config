@@ -1,0 +1,60 @@
+general {
+    colors = true
+    interval = 5
+}
+
+% for iface in host['i3status']['wireless']:
+wireless ${iface} {
+    format_up = "${iface} %ip %essid %quality"
+    format_down = "${iface} down"
+}
+order += "wireless ${iface}"
+
+% endfor
+% for iface in host['i3status']['ethernet']:
+ethernet ${iface} {
+    format_up = "${iface} %ip"
+    format_down = "${iface} down"
+}
+order += "ethernet ${iface}"
+
+% endfor
+% for disk in host['i3status']['disks']:
+disk "${disk}" {
+    format = "${disk} %avail"
+}
+order += "disk ${disk}"
+
+% endfor
+volume default {
+    format = "vol %volume"
+    format_muted = "mute %volume"
+    device = "pulse"
+}
+order += "volume default"
+
+battery all {
+    format = "%status %percentage %remaining"
+    format_down = ""
+    status_chr = "chr"
+    status_bat = "bat"
+    status_unk = "unk"
+    status_full = "bat"
+}
+order += "battery all"
+
+cpu_usage {
+    format = "cpu %usage"
+}
+order += "cpu_usage"
+
+tztime utc {
+    format = "%Y-%m-%d %H:%M:%S"
+    timezone = UTC
+}
+order += "tztime utc"
+
+tztime local {
+    format = "%H:%M"
+}
+order += "tztime local"
