@@ -8,6 +8,7 @@ ${' '.join(output['config'])}\
 %endif
 
 % endfor 
+
 xset s 0 0
 xset -dpms
 
