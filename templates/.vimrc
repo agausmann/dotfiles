@@ -1,6 +1,5 @@
 " appearance
 syntax enable
-set cursorline
 set number
 set showcmd
 set showmatch
