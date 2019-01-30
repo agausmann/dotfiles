@@ -1,9 +1,10 @@
+<% i3status = host.get('i3status', {}) %>\
 general {
     colors = true
     interval = 5
 }
 
-% for iface in host['i3status']['wireless']:
+% for iface in i3status.get('wireless', []):
 wireless ${iface} {
     format_up = "${iface} %ip %essid %quality"
     format_down = "${iface} down"
@@ -11,7 +12,7 @@ wireless ${iface} {
 order += "wireless ${iface}"
 
 % endfor
-% for iface in host['i3status']['ethernet']:
+% for iface in i3status.get('ethernet', []):
 ethernet ${iface} {
     format_up = "${iface} %ip"
     format_down = "${iface} down"
@@ -19,7 +20,7 @@ ethernet ${iface} {
 order += "ethernet ${iface}"
 
 % endfor
-% for disk in host['i3status']['disks']:
+% for disk in i3status.get('disks', ['/']):
 disk "${disk}" {
     format = "${disk} %avail"
 }

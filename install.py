@@ -38,9 +38,13 @@ def main():
 
     templates_dir = args.dotfiles / 'templates'
     include_dir = args.dotfiles / 'include'
+    host_filename = args.dotfiles / 'hosts' / '{}.toml'.format(args.hostname)
 
-    with open(args.dotfiles / 'hosts.toml') as hosts_file:
-        hosts_config = toml.load(hosts_file)
+    if host_filename.exists():
+        with open(host_filename) as host_file:
+            host_config = toml.load(host_file)
+    else:
+        host_config = {}
 
     lookup = mako.lookup.TemplateLookup(
         directories=[
@@ -58,7 +62,7 @@ def main():
             lookup=lookup,
         )
         output = template.render(
-            host=hosts_config[args.hostname]
+            host=host_config
         )
         output_path = args.home / template_path.relative_to(templates_dir)
         with open(output_path, 'w+') as output_file:

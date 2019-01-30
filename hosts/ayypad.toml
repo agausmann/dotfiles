@@ -1,0 +1,12 @@
+[i3status]
+wireless = ["wlp4s0"]
+ethernet = ["enp2s0"]
+disks = ["/", "/home"]
+
+[xinit]
+outputs = [
+    { name = "eDP", config = ["--auto", "--primary"] },
+    { name = "HDMI-A-0" },
+    { name = "DisplayPort-0" },
+    { name = "DisplayPort-1" },
+]

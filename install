@@ -1,5 +1,4 @@
 #!/bin/sh
 
 cd $(dirname "$0")
-git submodule update --init
 pipenv run -- ./install.py "$@"
