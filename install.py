@@ -65,6 +65,7 @@ def main():
             host=host_config
         )
         output_path = args.home / template_path.relative_to(templates_dir)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, 'w+') as output_file:
             output_file.write(output)
 
