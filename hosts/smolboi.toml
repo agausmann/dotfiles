@@ -1,0 +1,4 @@
+[i3status]
+wireless = ["wlp36s0"]
+ethernet = ["enp37s0"]
+disks = ["/", "/home"]
