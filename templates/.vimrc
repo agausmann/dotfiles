@@ -13,6 +13,7 @@ set hlsearch
 set incsearch
 set lazyredraw
 set directory=~/.vim/tmp
+filetype plugin on
 
 " indentation
 set tabstop=4
