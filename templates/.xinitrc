@@ -1,7 +1,6 @@
-<% xinit = host.get('xinit', {}) %>\
 #!/bin/sh
 
-% for output in xinit.get('outputs', []):
+% for output in host.get('outputs', []):
 xrandr --output '${output['name']}' --set TearFree on \
 % if output.get('config'):
 ${' '.join(output['config'])}\

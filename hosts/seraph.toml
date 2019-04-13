@@ -1,8 +1,5 @@
-[i3status]
 ethernet = ["enp5s0"]
 disks = ["/", "/home"]
-
-[xinit]
 outputs = [
     { name = "HDMI-A-0", config = ["--auto", "--primary"] },
     { name = "DVI-D-0", config = ["--auto", "--left-of", "HDMI-A-0"] },

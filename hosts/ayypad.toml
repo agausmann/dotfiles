@@ -1,9 +1,6 @@
-[i3status]
 wireless = ["wlp4s0"]
 ethernet = ["enp2s0"]
 disks = ["/", "/home", "/media/hdd"]
-
-[xinit]
 outputs = [
     { name = "eDP", config = ["--auto", "--primary"] },
     { name = "HDMI-A-0" },
