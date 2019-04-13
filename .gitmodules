@@ -1,0 +1,3 @@
+[submodule "raw/.vim/pack/git-plugins/start/ale"]
+	path = raw/.vim/pack/git-plugins/start/ale
+	url = https://github.com/w0rp/ale.git

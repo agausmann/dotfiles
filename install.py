@@ -2,6 +2,7 @@
 
 import argparse
 import os
+import shutil
 import socket
 import sys
 from pathlib import Path
@@ -36,6 +37,7 @@ def main():
     )
     args = parser.parse_args()
 
+    raw_dir = args.dotfiles / 'raw'
     templates_dir = args.dotfiles / 'templates'
     include_dir = args.dotfiles / 'include'
     host_filename = args.dotfiles / 'hosts' / '{}.toml'.format(args.hostname)
@@ -53,9 +55,20 @@ def main():
         ],
     )
 
+    for raw_path in raw_dir.glob('**/*'):
+        if not raw_path.is_file():
+            continue
+        rel_path = raw_path.relative_to(raw_dir)
+        output_path = args.home / rel_path
+        print(rel_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(raw_path, output_path)
+
     for template_path in templates_dir.glob('**/*'):
         if not template_path.is_file():
             continue
+        rel_path = template_path.relative_to(templates_dir)
+        print(rel_path)
         template = mako.template.Template(
             filename=str(template_path),
             strict_undefined=True,
