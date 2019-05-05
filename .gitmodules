@@ -7,3 +7,6 @@
 [submodule "raw/.vim/pack/git-plugins/start/pest.vim"]
 	path = raw/.vim/pack/git-plugins/start/pest.vim
 	url = https://github.com/pest-parser/pest.vim
+[submodule "raw/.vim/pack/git-plugins/start/rust.vim"]
+	path = raw/.vim/pack/git-plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim

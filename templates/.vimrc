@@ -19,6 +19,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+let g:rustfmt_autosave = 1 " format .rs on save
+
 " custom file types
 filetype plugin indent on
 autocmd FileType yaml,yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
