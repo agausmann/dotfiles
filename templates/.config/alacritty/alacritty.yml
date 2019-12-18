@@ -1,7 +1,6 @@
 scrolling:
   history: 10000
   multiplier: 3
-  faux_multiplier: 3
   auto_scroll: false
 
 tabspaces: 8
@@ -17,9 +16,6 @@ font:
     family: monospace
     style: Italic
   size: 8
-
-render_timer: false
-persistent_logging: false
 
 draw_bold_text_with_bright_colors: true
 
