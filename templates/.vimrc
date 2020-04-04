@@ -4,6 +4,7 @@ set number
 set showcmd
 set showmatch
 set wildmenu
+colorscheme base16
 
 " behavior
 noremap j gj

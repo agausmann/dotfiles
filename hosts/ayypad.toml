@@ -1,3 +1,4 @@
+base16-scheme = "seti"
 wireless = ["wlp4s0"]
 ethernet = ["enp2s0"]
 disks = ["/", "/home", "/media/hdd"]

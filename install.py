@@ -5,11 +5,25 @@ import os
 import shutil
 import socket
 import sys
+from functools import partial
 from pathlib import Path
 
 import mako.lookup
 import mako.template
+import requests
 import toml
+import yaml
+
+BASE16_TEMPLATES_URL = 'https://raw.githubusercontent.com/chriskempson/base16-templates-source/master/list.yaml'
+BASE16_TEMPLATES = yaml.safe_load(requests.get(BASE16_TEMPLATES_URL).text)
+
+
+def get_base16(scheme, app, template='default'):
+    base_url = BASE16_TEMPLATES[app].replace('github.com', 'raw.githubusercontent.com') + '/master/';
+    config = yaml.safe_load(requests.get(base_url + 'templates/config.yaml').text)
+    output = config[template]['output']
+    extension = config[template]['extension']
+    return requests.get(base_url + output + '/base16-' + scheme + extension).text
 
 
 def main():
@@ -75,7 +89,8 @@ def main():
             lookup=lookup,
         )
         output = template.render(
-            host=host_config
+            host=host_config,
+            get_base16=partial(get_base16, host_config.get('base16-scheme', 'default-dark')),
         )
         output_path = args.home / template_path.relative_to(templates_dir)
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -83,4 +98,5 @@ def main():
             output_file.write(output)
 
 
-main()
+if __name__ == '__main__':
+    main()
