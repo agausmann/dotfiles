@@ -27,6 +27,16 @@ set $kdown j
 set $kup k
 set $kright l
 
+${get_base16('i3', 'colors')}
+
+# property                  border  bg      text    indic   child
+client.focused              $base0D $base0D $base00 $base0E $base0D
+client.focused_inactive     $base00 $base01 $base05 $base01 $base01
+client.unfocused            $base01 $base00 $base05 $base00 $base00
+client.urgent               $base08 $base08 $base00 $base08 $base08
+client.placeholder          $base01 $base01 $base05 $base01 $base01
+client.background           $base07
+
 font pango:DejaVu Sans Mono 8
 focus_follows_mouse no
 
@@ -102,7 +112,18 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+
 bar {
     tray_output none
     status_command /usr/bin/i3status
+    font pango:DejaVu Sans Mono 10
+
+${get_base16('i3', 'bar-colors')}
+
+    colors {
+        background $base01
+        separator $base03
+    }
 }
