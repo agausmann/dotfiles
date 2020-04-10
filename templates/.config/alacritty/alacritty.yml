@@ -12,7 +12,11 @@ font:
   italic:
     family: monospace
     style: Italic
+% if host['name'] == 'smol':
+  size: 9
+% else:
   size: 8
+% endif
 
 ${get_base16('alacritty')}
 

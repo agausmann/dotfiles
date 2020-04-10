@@ -1,3 +1,4 @@
+base16-scheme = "seti"
 ethernet = ["enp0s3"]
 disks = ["/"]
 outputs = [

@@ -61,6 +61,7 @@ def main():
             host_config = toml.load(host_file)
     else:
         host_config = {}
+    host_config['name'] = args.hostname
 
     lookup = mako.lookup.TemplateLookup(
         directories=[
