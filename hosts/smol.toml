@@ -2,5 +2,5 @@ base16-scheme = "seti"
 ethernet = ["enp0s3"]
 disks = ["/"]
 outputs = [
-    { name = "VGA-1", config = ["--auto", "--primary", "--mode", "1920x1080" ] }
+    { name = "VGA-1", config = ["--primary", "--mode", "1920x1080" ] }
 ]
