@@ -3,6 +3,8 @@ general {
     interval = 5
 }
 
+${get_base16('i3status')}
+
 % for iface in host.get('wireless', []):
 wireless ${iface} {
     format_up = "${iface} %ip %essid %quality"
