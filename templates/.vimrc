@@ -20,6 +20,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+set autochdir
+
 let g:rustfmt_autosave = 1 " format .rs on save
 
 " custom file types
