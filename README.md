@@ -4,13 +4,17 @@ My personal dotfiles and configurations, generated from templates with Mako!
 
 ## Contents
 
+- `install.py` - The script that generates and installs the templates. (Requires Mako)
+
+- `install` - Updates submodules and runs `pipenv run install.py "$@"`.
+
+- `hosts` - Host-specific configuration files.
+
 - `templates/` - The set of base template files.
 
 - `include/` - Template files that do not map directly to a generated file.
 
-- `install.py` - The script that generates and installs the templates. (Requires Mako)
-
-- `install` - Updates submodules and runs `pipenv run install.py "$@"`.
+- `raw/` - Raw files to be copied directly to the home directory (useful for submodules).
 
 ## How it Works
 
