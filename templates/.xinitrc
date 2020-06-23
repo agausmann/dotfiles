@@ -11,4 +11,4 @@ ${' '.join(output['config'])}\
 xset s 0 0
 xset -dpms
 
-exec /usr/bin/ck-launch-session /usr/bin/dbus-launch --sh-syntax --exit-with-session /usr/bin/i3
+exec /usr/bin/ck-launch-session /usr/bin/dbus-launch --sh-syntax --exit-with-session ssh-agent /usr/bin/i3
