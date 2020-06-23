@@ -1,3 +1,4 @@
+is-virtual = true
 base16-scheme = "seti"
 ethernet = ["enp0s3"]
 disks = ["/"]

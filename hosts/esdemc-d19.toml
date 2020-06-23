@@ -1,0 +1,14 @@
+is-virtual = true
+base16-scheme = "seti"
+ethernet = ["enp0s3"]
+disks = ["/"]
+outputs = [
+    { name = "Virtual1", config = ["--auto", "--primary"] },
+    { name = "Virtual2" },
+    { name = "Virtual3" },
+    { name = "Virtual4" },
+    { name = "Virtual5" },
+    { name = "Virtual6" },
+    { name = "Virtual7" },
+    { name = "Virtual8" },
+]

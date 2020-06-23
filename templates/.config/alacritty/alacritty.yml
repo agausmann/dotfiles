@@ -12,7 +12,7 @@ font:
   italic:
     family: monospace
     style: Italic
-% if host['name'] == 'smol':
+% if host.get('is-virtual', False):
   size: 10
 % else:
   size: 7
