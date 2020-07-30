@@ -8,10 +8,9 @@ ${' '.join(output['config'])}\
 
 % endfor 
 
-xset s 0 0
+xset s 0
 xset -dpms
 
-exec /usr/bin/ck-launch-session \
-    /usr/bin/dbus-launch --sh-syntax --exit-with-session \
-        ssh-agent -t 3600 \
-            /usr/bin/i3
+exec /usr/bin/dbus-launch --sh-syntax --exit-with-session \
+    ssh-agent -t 3600 \
+    /usr/bin/i3
