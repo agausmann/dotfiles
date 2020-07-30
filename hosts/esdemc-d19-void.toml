@@ -3,7 +3,7 @@ base16-scheme = "seti"
 ethernet = ["enp0s3"]
 disks = ["/"]
 outputs = [
-    { name = "Virtual1", config = ["--auto", "--primary"] },
+    { name = "Virtual1", config = ["--primary", "--mode", "1440x900"] },
     { name = "Virtual2" },
     { name = "Virtual3" },
     { name = "Virtual4" },
