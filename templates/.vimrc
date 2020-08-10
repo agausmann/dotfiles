@@ -28,3 +28,4 @@ let g:rustfmt_autosave = 1 " format .rs on save
 filetype plugin indent on
 autocmd FileType yaml,yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType markdown,plaintex,rst,tex,text setlocal textwidth=79
+autocmd BufNewFile,BufRead *.qml set smartindent
