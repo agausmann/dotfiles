@@ -5,6 +5,9 @@ set showcmd
 set showmatch
 set wildmenu
 colorscheme base16
+" fix unreadable ALE errors
+exec "highlight SpellBad guifg=#".g:base16_gui05." guibg=#".g:base16_gui08." ctermfg=".g:base16_cterm05." ctermbg=".g:base16_cterm08
+exec "highlight SpellCap guifg=#".g:base16_gui00." guibg=#".g:base16_gui0D." ctermfg=".g:base16_cterm00." ctermbg=".g:base16_cterm0D
 
 " behavior
 noremap j gj
