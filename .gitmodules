@@ -10,3 +10,6 @@
 [submodule "raw/.vim/pack/git-plugins/start/rust.vim"]
 	path = raw/.vim/pack/git-plugins/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
+[submodule "raw/.vim/pack/git-plugins/start/vim-beancount"]
+	path = raw/.vim/pack/git-plugins/start/vim-beancount
+	url = https://github.com/nathangrigg/vim-beancount
