@@ -37,6 +37,8 @@ client.urgent               $base08 $base08 $base00 $base08 $base08
 client.placeholder          $base01 $base01 $base05 $base01 $base01
 client.background           $base07
 
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
 font pango:DejaVu Sans Mono 8
 focus_follows_mouse no
 
@@ -44,12 +46,13 @@ floating_modifier $mod
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+p exec --no-startup-id /usr/bin/i3lock -c 000000
+bindsym $mod+Shift+p exec swaylock -c 000000
 
-bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run
-bindsym $mod+Return exec --no-startup-id  ${host.get('terminal', '/usr/bin/i3-sensible-terminal')}
+bindsym $mod+d exec dmenu-wl_run
+bindsym $mod+p exec passmenu
+bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
 
 bindsym $mod+$kleft focus left
 bindsym $mod+$kdown focus down
@@ -108,16 +111,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -8%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bar {
     tray_output none
-    status_command /usr/bin/i3status
+    status_command i3status
     font pango:DejaVu Sans Mono 10
 
 ${get_base16('i3', 'bar-colors')}
@@ -125,5 +125,6 @@ ${get_base16('i3', 'bar-colors')}
     colors {
         background $base01
         separator $base03
+        statusline $base05
     }
 }

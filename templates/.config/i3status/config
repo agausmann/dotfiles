@@ -57,6 +57,7 @@ memory {
     threshold_degraded = "10%"
     threshold_critical = "5%"
 }
+order += "memory"
 
 tztime utc {
     format = "%Y-%m-%d %H:%M:%S"
