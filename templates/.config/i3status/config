@@ -11,27 +11,20 @@ wireless ${iface} {
     format_down = "${iface} down"
 }
 order += "wireless ${iface}"
-
 % endfor
+
 % for iface in host.get('ethernet', []):
 ethernet ${iface} {
     format_up = "${iface} %ip"
     format_down = "${iface} down"
 }
 order += "ethernet ${iface}"
-
 % endfor
-% for disk in host.get('disks', ['/']):
-disk "${disk}" {
-    format = "${disk} %avail"
-}
-order += "disk ${disk}"
 
-% endfor
 volume default {
     format = "vol %volume"
     format_muted = "mute %volume"
-    device = "pulse"
+    device = "default"
 }
 order += "volume default"
 
@@ -41,14 +34,29 @@ battery all {
     status_chr = "chr"
     status_bat = "bat"
     status_unk = "unk"
-    status_full = "bat"
+    status_full = "full"
 }
 order += "battery all"
 
+% for disk in host.get('disks', ['/']):
+disk "${disk}" {
+    format = "${disk} %avail"
+}
+order += "disk ${disk}"
+% endfor
+
 cpu_usage {
     format = "cpu %usage"
+    degraded_threshold = "50"
+    max_threshold = "90"
 }
 order += "cpu_usage"
+
+memory {
+    format = "mem %percentage_used"
+    threshold_degraded = "10%"
+    threshold_critical = "5%"
+}
 
 tztime utc {
     format = "%Y-%m-%d %H:%M:%S"
