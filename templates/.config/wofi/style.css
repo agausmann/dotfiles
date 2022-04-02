@@ -1,6 +1,7 @@
 window {
-	background-color: --wofi-color1;
-	color: --wofi-color5;
+    background-color: --wofi-color1;
+    color: --wofi-color5;
+    font-family: 'DejaVu Sans Mono';
 }
 
 #input {
@@ -14,6 +15,6 @@ window {
 }
 
 #entry:selected {
-	background-color: --wofi-color2;
+    background-color: --wofi-color2;
 }
 
