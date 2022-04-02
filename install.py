@@ -17,9 +17,16 @@ import yaml
 BASE16_TEMPLATES_URL = 'https://raw.githubusercontent.com/chriskempson/base16-templates-source/master/list.yaml'
 BASE16_TEMPLATES = yaml.safe_load(requests.get(BASE16_TEMPLATES_URL).text)
 
+# Pending https://github.com/chriskempson/base16-templates-source/pull/106
+BASE16_TEMPLATES['wofi-colors'] = 'https://github.com/agausmann/base16-wofi-colors'
+
 
 def get_base16(scheme, app, template='default'):
-    base_url = BASE16_TEMPLATES[app].replace('github.com', 'raw.githubusercontent.com') + '/master/';
+    base_url = BASE16_TEMPLATES[app]
+    if 'github.com' in base_url:
+        base_url = base_url.replace('github.com', 'raw.githubusercontent.com') + '/master/'
+    else:
+        base_url += '/blob/master/'
     config = yaml.safe_load(requests.get(base_url + 'templates/config.yaml').text)
     output = config[template]['output']
     extension = config[template]['extension']

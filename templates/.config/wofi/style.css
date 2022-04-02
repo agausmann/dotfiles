@@ -1,0 +1,19 @@
+window {
+	background-color: --wofi-color1;
+	color: --wofi-color5;
+}
+
+#input {
+    background-color: --wofi-color0;
+    color: --wofi-color5;
+    border-color: --wofi-color1;
+}
+
+#input:selected {
+    border-color: --wofi-color2;
+}
+
+#entry:selected {
+	background-color: --wofi-color2;
+}
+

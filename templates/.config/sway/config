@@ -58,7 +58,7 @@ bindsym $mod+Shift+e swaynag -t warning -m 'You pressed the exit shortcut. Do yo
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+p exec swaylock -c 000000
 
-bindsym $mod+d exec dmenu-wl_run
+bindsym $mod+d exec wofi --show run
 bindsym $mod+p exec passmenu
 bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
 
