@@ -1,0 +1,7 @@
+[global]
+    follow = mouse
+    origin = bottom-center
+    font = "DejaVu Sans Mono 10"
+
+${get_base16('dunst')}
+
