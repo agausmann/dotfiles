@@ -43,6 +43,9 @@ output "${output['name']}" pos ${output['position']} mode ${output['mode']}
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
+exec pipewire
+exec pipewire-pulse
+
 font pango:DejaVu Sans Mono 8
 focus_follows_mouse no
 
