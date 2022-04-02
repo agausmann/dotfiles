@@ -1,0 +1,8 @@
+#!/bin/sh
+
+PASSWORD_STORE="$HOME/.password-store"
+
+cd "$PASSWORD_STORE" || exit 1
+passwords="$(find . -name '*.gpg' | sed -nr 's/^\.\/(.*)\.gpg$/\1/p')"
+selected="$(echo "$passwords" | wofi --dmenu || exit)"
+pass -c "$selected"
