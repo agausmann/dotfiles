@@ -2,3 +2,18 @@ is-virtual = false
 base16-scheme = "seti"
 ethernet = ["enp37s0"]
 disks = ["/"]
+
+[[outputs]]
+name = "Unknown VG258 M1LMQS004947"
+position = "0 1080"
+mode = "1920x1080@165Hz"
+
+[[outputs]]
+name = "BenQ Corporation BenQ GL2580 46J02196SL0"
+position = "1920 1080"
+mode = "1920x1080@60Hz"
+
+[[outputs]]
+name = "BenQ Corporation BenQ GL2580 46J02151SL0"
+position = "960 0"
+mode = "1920x1080@60Hz"
