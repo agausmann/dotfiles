@@ -58,8 +58,8 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+p exec swaylock -c 000000
 
-bindsym $mod+d exec wofi --show run
-bindsym $mod+Shift+d exec wofi --show drun
+bindsym $mod+d exec wofi --show drun
+bindsym $mod+Shift+d exec wofi --show run
 bindsym $mod+p exec wofi-pass
 bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
 
