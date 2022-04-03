@@ -7,6 +7,7 @@ import socket
 import sys
 from functools import partial
 from pathlib import Path
+from typing import List
 
 import mako.lookup
 import mako.template
@@ -33,6 +34,17 @@ def get_base16(scheme, app, template='default'):
     return requests.get(base_url + output + '/base16-' + scheme + extension).text
 
 
+def is_outdated(src: List[Path], dst: Path) -> bool:
+    if not dst.exists():
+        return True
+
+    dst_modified = dst.stat().st_mtime
+    return any(
+        a_src.stat().st_mtime > dst_modified
+        for a_src in src
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Generates and installs dotfiles for this host.',
@@ -55,6 +67,11 @@ def main():
         help='The home directory where generated dotfiles will be installed.',
         type=Path,
         default=os.environ.get('HOME') or Path.home(),
+    )
+    parser.add_argument(
+        '-f', '--force',
+        help='Force overwrite all files even if they are not considered outdated.',
+        action='store_true'
     )
     args = parser.parse_args()
 
@@ -82,28 +99,32 @@ def main():
             continue
         rel_path = raw_path.relative_to(raw_dir)
         output_path = args.home / rel_path
-        print(rel_path)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy(raw_path, output_path)
+
+        if args.force or is_outdated([raw_path], output_path):
+            print(rel_path)
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(raw_path, output_path)
 
     for template_path in templates_dir.glob('**/*'):
         if not template_path.is_file():
             continue
         rel_path = template_path.relative_to(templates_dir)
-        print(rel_path)
-        template = mako.template.Template(
-            filename=str(template_path),
-            strict_undefined=True,
-            lookup=lookup,
-        )
-        output = template.render(
-            host=host_config,
-            get_base16=partial(get_base16, host_config.get('base16-scheme', 'default-dark')),
-        )
         output_path = args.home / template_path.relative_to(templates_dir)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(output_path, 'w+') as output_file:
-            output_file.write(output)
+
+        if args.force or is_outdated([template_path, host_filename], output_path):
+            print(rel_path)
+            template = mako.template.Template(
+                filename=str(template_path),
+                strict_undefined=True,
+                lookup=lookup,
+            )
+            output = template.render(
+                host=host_config,
+                get_base16=partial(get_base16, host_config.get('base16-scheme', 'default-dark')),
+            )
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(output_path, 'w+') as output_file:
+                output_file.write(output)
 
 
 if __name__ == '__main__':
