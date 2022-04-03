@@ -137,3 +137,7 @@ ${get_base16('i3', 'bar-colors')}
         statusline $base05
     }
 }
+
+for_window [title="Picture-in-Picture"] floating enable
+
+input type:Mouse accel_profile flat
