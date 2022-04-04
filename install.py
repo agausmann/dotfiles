@@ -120,6 +120,7 @@ def main():
             )
             output = template.render(
                 host=host_config,
+                home=args.home,
                 get_base16=partial(get_base16, host_config.get('base16-scheme', 'default-dark')),
             )
             output_path.parent.mkdir(parents=True, exist_ok=True)
