@@ -50,6 +50,7 @@ for_window [title="Picture-in-Picture"] floating enable
 exec pipewire
 exec pipewire-pulse
 exec swayidle
+exec dunst
 
 font pango:DejaVu Sans Mono 8
 focus_follows_mouse no
