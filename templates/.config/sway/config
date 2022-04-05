@@ -43,6 +43,10 @@ output "${output['name']}" pos ${output['position']} mode ${output['mode']}
 
 output * bg ${home}/.local/share/backgrounds/sway-dark-1920x1080.png fill
 
+input type:Mouse accel_profile flat
+
+for_window [title="Picture-in-Picture"] floating enable
+
 exec pipewire
 exec pipewire-pulse
 exec swayidle
@@ -58,10 +62,12 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+p exec swaylock -c 000000
 
+bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+Shift+d exec wofi --show run
 bindsym $mod+p exec wofi-pass
-bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
+bindsym $mod+Shift+s exec grimshot --notify save window
+bindsym $mod+Ctrl+s exec grimshot --notify save area
 
 bindsym $mod+$kleft focus left
 bindsym $mod+$kdown focus down
@@ -137,7 +143,3 @@ ${get_base16('i3', 'bar-colors')}
         statusline $base05
     }
 }
-
-for_window [title="Picture-in-Picture"] floating enable
-
-input type:Mouse accel_profile flat
