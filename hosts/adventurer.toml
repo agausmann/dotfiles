@@ -1,6 +1,6 @@
 is-virtual = false
 base16-scheme = "seti"
-ethernet = ["enp37s0"]
+ethernet = ["enp6s0"]
 disks = ["/"]
 
 [[outputs]]
