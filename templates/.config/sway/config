@@ -53,7 +53,7 @@ for_window [title="TrackMania"] inhibit_idle focus
 
 exec pipewire
 exec pipewire-pulse
-exec swayidle
+#exec swayidle
 exec dunst
 
 font pango:DejaVu Sans Mono 8
@@ -66,6 +66,11 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+p exec swaylock -c 000000
+
+# Blank individual displays
+bindsym $mod+o output - dpms off
+# Unblank all displays
+bindsym $mod+Shift+o output * dpms on
 
 bindsym $mod+Return exec ${host.get('terminal', 'alacritty')}
 bindsym $mod+d exec wofi --show drun
