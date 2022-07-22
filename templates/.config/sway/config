@@ -55,6 +55,7 @@ exec pipewire
 exec pipewire-pulse
 #exec swayidle
 exec dunst
+exec udiskie
 
 font pango:DejaVu Sans Mono 8
 focus_follows_mouse no
@@ -153,3 +154,6 @@ ${get_base16('i3', 'bar-colors')}
         statusline $base05
     }
 }
+
+# Fix for xdg-desktop-portal-wlr
+exec dbus-update-activation-environment SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
