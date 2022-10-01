@@ -59,11 +59,13 @@ memory {
 }
 order += "memory"
 
+% if 'temperature-path' in host:
 cpu_temperature 0 {
     format = "temp: %degrees°C"
-    path = "${host.get('temperature_path', '/sys/class/thermal/thermal_zone0/temp')}"
+    path = "${host['temperature-path']}"
 }
 order += "cpu_temperature 0"
+% endif
 
 tztime utc {
     format = "%Y-%m-%d %H:%M:%S"
