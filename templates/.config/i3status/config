@@ -59,6 +59,12 @@ memory {
 }
 order += "memory"
 
+cpu_temperature 0 {
+    format = "temp: %degrees°C"
+    path = "${host.get('temperature_path', '/sys/class/thermal/thermal_zone0/temp')}"
+}
+order += "cpu_temperature 0"
+
 tztime utc {
     format = "%Y-%m-%d %H:%M:%S"
     timezone = UTC
