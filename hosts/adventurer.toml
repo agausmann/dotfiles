@@ -3,6 +3,8 @@ base16-scheme = "seti"
 wireless = ["wlp5s0"]
 ethernet = ["enp6s0"]
 disks = ["/"]
+# hwmon2 = k10temp, temp1 = Tctl
+temperature-path = "/sys/class/hwmon/hwmon2/temp1_input"
 
 [[outputs]]
 name = "Unknown VG258 M1LMQS004947"
