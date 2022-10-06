@@ -61,7 +61,7 @@ order += "memory"
 
 % if 'temperature-path' in host:
 cpu_temperature 0 {
-    format = "temp: %degrees°C"
+    format = "temp %degrees°C"
     path = "${host['temperature-path']}"
 }
 order += "cpu_temperature 0"
