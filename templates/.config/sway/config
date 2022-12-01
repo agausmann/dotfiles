@@ -45,8 +45,6 @@ output * bg ${home}/.local/share/backgrounds/sway-dark-1920x1080.png fill
 
 input type:Mouse accel_profile flat
 
-for_window [title="Picture-in-Picture"] floating enable
-
 # gamepad games:
 for_window [title="TrackMania Nations Forever"] inhibit_idle focus
 for_window [title="TrackMania"] inhibit_idle focus
