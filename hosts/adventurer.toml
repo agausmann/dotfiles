@@ -8,15 +8,15 @@ temperature-path = "/sys/class/hwmon/hwmon2/temp1_input"
 
 [[outputs]]
 name = "Unknown VG258 M1LMQS004947"
-position = "0 1080"
+position = "1920 0"
 mode = "1920x1080@165Hz"
 
 [[outputs]]
 name = "BenQ Corporation BenQ GL2580 46J02196SL0"
-position = "1920 1080"
+position = "0 0"
 mode = "1920x1080@60Hz"
 
 [[outputs]]
 name = "BenQ Corporation BenQ GL2580 46J02151SL0"
-position = "960 0"
+position = "3840 0"
 mode = "1920x1080@60Hz"
