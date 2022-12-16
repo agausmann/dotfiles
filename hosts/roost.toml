@@ -1,0 +1,5 @@
+base16-scheme = "seti"
+wireless = ["wlan0"]
+ethernet = ["eth0"]
+disks = ["/"]
+outputs = []
