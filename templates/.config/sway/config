@@ -38,7 +38,7 @@ client.placeholder          $base01 $base01 $base05 $base01 $base01
 client.background           $base07
 
 % for output in host.get('outputs', []):
-output "${output['name']}" pos ${output['position']} mode ${output['mode']}
+output ${output}
 % endfor
 
 output * bg ${home}/.local/share/backgrounds/sway-dark-1920x1080.png fill

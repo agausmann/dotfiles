@@ -2,4 +2,9 @@ base16-scheme = "seti"
 wireless = ["wlan0"]
 ethernet = ["eth0"]
 disks = ["/"]
-outputs = []
+
+outputs = [
+    "HDMI-A-1 mode 3840x2160@30Hz scale 2.0",
+    #TODO when HDMI cable arrives
+    #"name HDMI-A-1 mode 3840x2160@60Hz scale 2.0",
+]
