@@ -3,3 +3,4 @@ wireless = ["wlp4s0"]
 ethernet = ["enp2s0"]
 disks = ["/"]
 outputs = []
+temperature-path = "/sys/class/hwmon/hwmon4/temp1_input"
