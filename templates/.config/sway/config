@@ -51,7 +51,7 @@ for_window [title="TrackMania"] inhibit_idle focus
 
 exec pipewire
 exec pipewire-pulse
-#exec swayidle
+exec swayidle
 exec dunst
 exec udiskie
 
