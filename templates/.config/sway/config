@@ -45,9 +45,13 @@ output * bg ${home}/.local/share/backgrounds/sway-dark-1920x1080.png fill
 
 input type:Mouse accel_profile flat
 
-# gamepad games:
-for_window [title="TrackMania Nations Forever"] inhibit_idle focus
-for_window [title="TrackMania"] inhibit_idle focus
+# auto-float
+for_window [title="Firefox — Sharing Indicator"] {
+    floating enable
+    move position 0 0
+}
+no_focus [title="Firefox — Sharing Indicator"]
+
 
 exec pipewire
 exec pipewire-pulse
