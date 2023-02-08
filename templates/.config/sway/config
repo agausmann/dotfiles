@@ -95,6 +95,11 @@ bindsym $mod+Shift+$kdown move down
 bindsym $mod+Shift+$kup move up
 bindsym $mod+Shift+$kright move right
 
+bindsym $mod+Ctrl+$kleft move workspace to output left
+bindsym $mod+Ctrl+$kdown move workspace to output down
+bindsym $mod+Ctrl+$kup move workspace to output up
+bindsym $mod+Ctrl+$kright move workspace to output right
+
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
