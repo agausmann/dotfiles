@@ -7,8 +7,8 @@ disks = ["/"]
 temperature-path = "/sys/class/hwmon/hwmon2/temp1_input"
 
 outputs = [
-    "\"ASUSTek COMPUTER INC VG258 M1LMQS004947\" position 1920 0 mode 1920x1080@165Hz",
-    "\"BNQ BenQ GL2580 46J02196SL0\" position 0 0 mode 1920x1080@60Hz",
+    "\"ASUSTek COMPUTER INC VG258 M1LMQS004947\" position 0 0 mode 1920x1080@165Hz",
+    "\"BNQ BenQ GL2580 46J02196SL0\" position 1920 0 mode 1920x1080@60Hz",
     "\"BNQ BenQ GL2580 46J02151SL0\" position 3840 0 mode 1920x1080@60Hz",
     "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0",
 ]
