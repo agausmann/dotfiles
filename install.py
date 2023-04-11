@@ -42,6 +42,7 @@ def is_outdated(src: List[Path], dst: Path) -> bool:
     return any(
         a_src.stat().st_mtime > dst_modified
         for a_src in src
+        if a_src.exists()
     )
 
 
