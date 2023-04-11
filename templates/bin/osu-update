@@ -1,0 +1,7 @@
+#!/bin/sh
+
+URL="https://github.com/ppy/osu/releases/latest/download/osu.AppImage"
+OUTPUT="$HOME/.local/lib/appimages/osu.AppImage"
+
+curl -L "$URL" -o "$OUTPUT"
+chmod +x "$OUTPUT"

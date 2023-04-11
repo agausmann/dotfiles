@@ -1,0 +1,6 @@
+#!/bin/sh
+
+URL="https://discord.com/api/download/stable?platform=linux&format=tar.gz"
+OUTPUT="$HOME/.local/lib"
+
+curl -sL "$URL" | tar -zxv -C "$OUTPUT"

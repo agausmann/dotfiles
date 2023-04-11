@@ -1,0 +1,5 @@
+#!/bin/sh
+
+outfile="$(date +"%Y-%m-%d %T").mkv"
+
+wf-recorder -g "$(slurp -o)" -D -F "format=yuv420p" -f "$outfile"
