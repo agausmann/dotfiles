@@ -4,3 +4,7 @@ ethernet = ["enp2s0"]
 disks = ["/"]
 outputs = []
 temperature-path = "/sys/class/hwmon/hwmon5/temp1_input"
+
+outputs = [
+    "* bg ~/.local/share/backgrounds/faithful/full.jpg fill",
+]
