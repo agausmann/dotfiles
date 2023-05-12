@@ -5,7 +5,7 @@ ethernet = ["eno1"]
 disks = ["/"]
 
 outputs = [
-    "* bg ~/.local/share/backgrouds/concord/full.jpg fill",
+    "* bg ~/.local/share/backgrounds/concord/full.jpg fill",
     "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0",
 ]
 default-background = false
