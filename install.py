@@ -113,14 +113,18 @@ def main():
         # This will only work if this is run on the target host
         # and if sway is running, but that is usually the case...
         if output['match'] != '*':
-            get_outputs = subprocess.check_output(
-                ['swaymsg', '-t', 'get_outputs', '-p'],
-            ).decode('utf-8')
-            for line in get_outputs.splitlines():
-                # Line format: Output <device> '<match identifier>'
-                if line.startswith('Output') and output['match'] in line:
-                    output['device'] = line.split()[1]
-                    break        
+            try:
+                get_outputs = subprocess.check_output(
+                    ['swaymsg', '-t', 'get_outputs', '-p'],
+                ).decode('utf-8')
+                for line in get_outputs.splitlines():
+                    # Line format: Output <device> '<match identifier>'
+                    if line.startswith('Output') and output['match'] in line:
+                        output['device'] = line.split()[1]
+                        break        
+            except subprocess.CalledProcessError:
+                print('Could not contact sway to retrieve output names.')
+                print('Please re-run in sway to finish configuring swaylock.')
 
     lookup = mako.lookup.TemplateLookup(
         directories=[
