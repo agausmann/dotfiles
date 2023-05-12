@@ -129,7 +129,7 @@ def main():
                 output_file.write(output)
 
             # Copy permissions from original file
-            output_path.chmod(template_path.stat().st_mode & 0x777)
+            output_path.chmod(template_path.stat().st_mode & 0o777)
 
 
 if __name__ == '__main__':
