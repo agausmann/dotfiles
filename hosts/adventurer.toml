@@ -1,15 +1,31 @@
-is-virtual = false
-base16-scheme = "seti"
 wireless = ["wlp5s0"]
 ethernet = ["enp6s0"]
-disks = ["/"]
 # hwmon2 = k10temp, temp1 = Tctl
 temperature-path = "/sys/class/hwmon/hwmon2/temp1_input"
 
-outputs = [
-    "\"ASUSTek COMPUTER INC VG258 M1LMQS004947\" position 0 1080 mode 1920x1080@165Hz bg ~/.local/share/backgrounds/adventurer/l.jpg fill",
-    "\"BNQ BenQ GL2580 46J02196SL0\" position 1920 1080 mode 1920x1080@60Hz bg ~/.local/share/backgrounds/adventurer/r.jpg fill",
-    "\"BNQ BenQ GL2580 46J02151SL0\" position 960 0 mode 1920x1080@60Hz bg ~/.local/share/backgrounds/adventurer/t.jpg fill  ",
-    "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0 bg ~/.local/share/backgrounds/adventurer/full.jpg fill",
-]
-default-background = false
+[[outputs]]
+match = "*"
+background = ["~/.local/share/backgrounds/adventurer/full.jpg", "fill"]
+
+[[outputs]]
+match = "ASUSTek COMPUTER INC VG258 M1LMQS004947"
+position = [0, 1080]
+mode = "1920x1080@165Hz"
+background = ["~/.local/share/backgrounds/adventurer/l.jpg", "fill"]
+
+[[outputs]]
+match = "BNQ BenQ GL2580 46J02196SL0"
+position = [1920, 1080]
+mode = "1920x1080@60Hz"
+background = ["~/.local/share/backgrounds/adventurer/r.jpg", "fill"]
+
+[[outputs]]
+match = "BNQ BenQ GL2580 46J02151SL0"
+position = [960, 0]
+mode = "1920x1080@60Hz"
+background = ["~/.local/share/backgrounds/adventurer/t.jpg", "fill"]
+
+[[outputs]]
+match = "Pioneer Electronic Corporation AV Receiver Unknown"
+mode = "3840x2160@60Hz"
+scale = 2

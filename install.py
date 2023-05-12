@@ -4,6 +4,7 @@ import argparse
 import os
 import shutil
 import socket
+import subprocess
 import sys
 from functools import partial
 from pathlib import Path
@@ -79,14 +80,47 @@ def main():
     raw_dir = args.dotfiles / 'raw'
     templates_dir = args.dotfiles / 'templates'
     include_dir = args.dotfiles / 'include'
+    default_host_filename = args.dotfiles / 'hosts' / 'default.toml'
     host_filename = args.dotfiles / 'hosts' / '{}.toml'.format(args.hostname)
+
+    with open(default_host_filename) as host_file:
+        host_config = toml.load(host_file)
 
     if host_filename.exists():
         with open(host_filename) as host_file:
-            host_config = toml.load(host_file)
-    else:
-        host_config = {}
+            host_config.update(toml.load(host_file))
+
     host_config['name'] = args.hostname
+
+    # Preprocess output configs for sway 
+    for output in host_config['outputs']:
+        # Generate config lines for sway template
+        lines = []
+        for key in output:
+            if key == 'match':
+                continue
+            if isinstance(output[key], list):
+                val = ' '.join(repr(elem) for elem in output[key])
+            else:
+                val = repr(output[key])
+            lines.append(f'{key} {val}')
+
+        output['sway-lines'] = lines
+
+        # Attempt to resolve device names for swaylock template
+        # (Workaround https://github.com/swaywm/swaylock/issues/114)
+        #
+        # This will only work if this is run on the target host
+        # and if sway is running, but that is usually the case...
+        if output['match'] != '*':
+            get_outputs = subprocess.check_output(
+                ['swaymsg', '-t', 'get_outputs', '-p'],
+            ).decode('utf-8')
+            for line in get_outputs.splitlines():
+                # Line format: Output <device> '<match identifier>'
+                if line.startswith('Output') and output['match'] in line:
+                    output['device'] = line.split()[1]
+                    break        
 
     lookup = mako.lookup.TemplateLookup(
         directories=[

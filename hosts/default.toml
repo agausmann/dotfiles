@@ -1,0 +1,10 @@
+is-virtual = false
+base16-scheme = "seti"
+disks = ["/"]
+system-font = "Fira Sans"
+system-mono-font = "Fira Mono"
+#temperature-path = ""
+
+[[outputs]]
+match = "*"
+background = ["~/.local/share/backgrounds/sway-dark-1920x1080.png", "fill"]

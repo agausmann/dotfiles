@@ -1,10 +1,7 @@
-base16-scheme = "seti"
 wireless = ["wlp4s0"]
 ethernet = ["enp2s0"]
-disks = ["/"]
 temperature-path = "/sys/class/hwmon/hwmon5/temp1_input"
 
-outputs = [
-    "* bg ~/.local/share/backgrounds/faithful/full.jpg fill",
-]
-default-background = false
+[[outputs]]
+match = "*"
+background = ["~/.local/share/backgrounds/faithful/full.jpg", "fill"]

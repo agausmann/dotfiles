@@ -1,0 +1,15 @@
+ignore-empty-password
+indicator-idle-visible
+color=000000
+scaling=fill
+font=${host['system-font']}
+
+% for output in host['outputs']:
+% if 'background' in output and (output['match'] == '*' or 'device' in output):
+% if output['match'] == '*':
+image=${output['background'][0]}
+% else:
+image=${output['device']}:${output['background'][0]}
+% endif
+% endif
+% endfor

@@ -1,11 +1,11 @@
-is-virtual = false
-base16-scheme = "seti"
 wireless = ["wlp0s20f3"]
 ethernet = ["eno1"]
-disks = ["/"]
 
-outputs = [
-    "* bg ~/.local/share/backgrounds/concord/full.jpg fill",
-    "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0",
-]
-default-background = false
+[[outputs]]
+match = "*"
+background = ["~/.local/share/backgrounds/concord/full.jpg", "fill"]
+
+[[outputs]]
+match = "Pioneer Electronic Corporation AV Receiver Unknown"
+mode = "3840x2160@60Hz"
+scale = 2
