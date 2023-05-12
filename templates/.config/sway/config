@@ -41,7 +41,11 @@ client.background           $base07
 output ${output}
 % endfor
 
+% if host.get('default-background', True):
 output * bg ${home}/.local/share/backgrounds/sway-dark-1920x1080.png fill
+% endif
+
+gaps inner 8
 
 input type:Mouse accel_profile flat
 

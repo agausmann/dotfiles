@@ -7,8 +7,9 @@ disks = ["/"]
 temperature-path = "/sys/class/hwmon/hwmon2/temp1_input"
 
 outputs = [
-    "\"ASUSTek COMPUTER INC VG258 M1LMQS004947\" position 0 1080 mode 1920x1080@165Hz",
-    "\"BNQ BenQ GL2580 46J02196SL0\" position 1920 1080 mode 1920x1080@60Hz",
-    "\"BNQ BenQ GL2580 46J02151SL0\" position 960 0 mode 1920x1080@60Hz",
-    "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0",
+    "\"ASUSTek COMPUTER INC VG258 M1LMQS004947\" position 0 1080 mode 1920x1080@165Hz bg ~/.local/share/backgrounds/adventurer/l.jpg fill",
+    "\"BNQ BenQ GL2580 46J02196SL0\" position 1920 1080 mode 1920x1080@60Hz bg ~/.local/share/backgrounds/adventurer/r.jpg fill",
+    "\"BNQ BenQ GL2580 46J02151SL0\" position 960 0 mode 1920x1080@60Hz bg ~/.local/share/backgrounds/adventurer/t.jpg fill  ",
+    "\"Pioneer Electronic Corporation AV Receiver Unknown\" mode 3840x2160@60Hz scale 2.0 bg ~/.local/share/backgrounds/adventurer/full.jpg fill",
 ]
+default-background = false
