@@ -1,5 +1,7 @@
 #!/bin/sh
 
-outfile="$(date +"%Y-%m-%d %T").mkv"
+outdir="$(xdg-user-dir VIDEOS)/recordings"
+outfile="$outdir/$(date +"%Y-%m-%d %T").mkv"
 
+mkdir -p "$outdir"
 wf-recorder -g "$(slurp -o)" -D -F "format=yuv420p" -f "$outfile"
