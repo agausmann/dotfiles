@@ -58,6 +58,7 @@ no_focus [title="Firefox — Sharing Indicator"]
 
 
 exec pipewire
+exec wireplumber
 exec pipewire-pulse
 exec swayidle
 exec dunst
