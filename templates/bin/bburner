@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# "Backburner Roulette"
+# Whenever you have an idea or a low-priority task that you want to
+# come back to later, put it in .backburner.
+# You can keep a .backburner in your homedir, or per-project, or whatever!
+# Then, whenever you're bored and looking for something to do, run this:
+
+# Pick one random line from the file, excluding commented and blank lines.
+shuf .backburner | grep -Ev '^\s*(#.*)?$' | head -n1
