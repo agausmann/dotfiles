@@ -1,0 +1,4 @@
+wireless = ["wlan0"]
+ethernet = ["eth0"]
+disk = ["/"]
+temperature-path = "/sys/class/hwmon/hwmon0/temp1_input"
