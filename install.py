@@ -93,6 +93,20 @@ def main():
     host_config['name'] = args.hostname
 
     # Preprocess output configs for sway 
+    for input in host_config['inputs']:
+        # Generate config lines for sway template
+        lines = []
+        for key in input:
+            if key == 'match':
+                continue
+            if isinstance(input[key], list):
+                val = ' '.join(repr(elem) for elem in input[key])
+            else:
+                val = repr(input[key])
+            lines.append(f'{key} {val}')
+
+        input['sway-lines'] = lines
+
     for output in host_config['outputs']:
         # Generate config lines for sway template
         lines = []

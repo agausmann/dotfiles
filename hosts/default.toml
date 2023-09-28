@@ -8,3 +8,5 @@ system-mono-font = "Fira Mono"
 [[outputs]]
 match = "*"
 background = ["~/.local/share/backgrounds/sway-dark-1920x1080.png", "fill"]
+
+inputs = []

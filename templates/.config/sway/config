@@ -45,6 +45,14 @@ output ${repr(output['match'])} {
 }
 % endfor
 
+% for input in host.get('inputs', []):
+input ${repr(input['match'])} {
+% for line in input['sway-lines']:
+    ${line}
+% endfor
+}
+%endfor
+
 gaps inner 8
 
 input type:Mouse accel_profile flat
