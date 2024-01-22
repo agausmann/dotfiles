@@ -1,0 +1,17 @@
+[font]
+% if host.get('is-virtual', False):
+size = 10
+% else:
+size = 12
+%endif
+
+[font.bold]
+family = "Fira Mono"
+
+[font.normal]
+family = "Fira Mono"
+
+[window]
+opacity = 0.9
+
+${get_base16('alacritty')}
