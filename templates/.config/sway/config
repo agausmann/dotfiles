@@ -75,6 +75,7 @@ exec pipewire-pulse
 exec swayidle
 exec dunst
 exec udiskie
+exec fcitx5
 
 font pango:${host['system-mono-font']} 8
 focus_follows_mouse no
@@ -147,6 +148,17 @@ bindsym $mod+Shift+$kws7 move container to workspace $ws7
 bindsym $mod+Shift+$kws8 move container to workspace $ws8
 bindsym $mod+Shift+$kws9 move container to workspace $ws9
 bindsym $mod+Shift+$kws10 move container to workspace $ws10
+
+bindsym $mod+Ctrl+$kws1 rename workspace to $ws1
+bindsym $mod+Ctrl+$kws2 rename workspace to $ws2
+bindsym $mod+Ctrl+$kws3 rename workspace to $ws3
+bindsym $mod+Ctrl+$kws4 rename workspace to $ws4
+bindsym $mod+Ctrl+$kws5 rename workspace to $ws5
+bindsym $mod+Ctrl+$kws6 rename workspace to $ws6
+bindsym $mod+Ctrl+$kws7 rename workspace to $ws7
+bindsym $mod+Ctrl+$kws8 rename workspace to $ws8
+bindsym $mod+Ctrl+$kws9 rename workspace to $ws9
+bindsym $mod+Ctrl+$kws10 rename workspace to $ws10
 
 mode "resize" {
     bindsym $kleft resize shrink width 10 px or 10 ppt
