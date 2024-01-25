@@ -64,6 +64,10 @@ for_window [title="Firefox — Sharing Indicator"] {
 }
 no_focus [title="Firefox — Sharing Indicator"]
 
+for_window [title="WSJT-X   v2.6.1   by K1JT et al. - Log QSO"] {
+    floating enable
+}
+
 
 exec pipewire
 exec wireplumber
