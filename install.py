@@ -93,7 +93,7 @@ def main():
     host_config['name'] = args.hostname
 
     # Preprocess output configs for sway 
-    for input in host_config['inputs']:
+    for input in host_config.get('inputs', []):
         # Generate config lines for sway template
         lines = []
         for key in input:
