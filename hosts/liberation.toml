@@ -4,7 +4,6 @@ temperature-path = "/sys/class/hwmon/hwmon4/temp1_input"
 
 [[outputs]]
 match = "eDP-1"
-scale = 1.5
 background = ["~/.local/share/backgrounds/sway-dark-1920x1080.png", "fill"]
 
 [[inputs]]
