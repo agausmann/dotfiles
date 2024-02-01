@@ -1,0 +1,7 @@
+# To be sourced by the user's .bash_profile script.
+#
+# Since install scripts like to append random stuff to bash_profile,
+# and it may contain other things specific to the system config,
+# it's not feasible to generate and install a universal bash_profile.
+
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"

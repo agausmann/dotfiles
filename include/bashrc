@@ -1,0 +1,23 @@
+# To be sourced by the user's .bashrc script.
+#
+# Since install scripts like to append random stuff to bashrc,
+# and it may contain other things specific to the system config,
+# it's not feasible to generate and install a universal bashrc.
+
+# Aliases
+alias dsway='dbus-run-session sway'
+
+export EDITOR=hx
+
+# SSH agent
+[ -n "$WAYLAND_DISPLAY" ] && eval $(keychain --confirm --eval --timeout 60 -q)
+
+# Vivado workaround
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Force firefox to use wayland
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
+
+# Force Adwaita Light
+export GTK_THEME=Adwaita
